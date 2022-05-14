@@ -29,7 +29,18 @@ fgv = folium.FeatureGroup(name="Volcanoes")
 
 # To iterate through the Longitude and Latitude lists from the dataframe using the zip function
 for lt, ln, el in zip(lat, lon, elev):
-    fg.add_child(folium.CircleMarker(location=[lat,lon] , radius = 6, popup=str(el) + " m", fill_color=color_producer(el), fill=True, color = 'grey', fill_opacity=0.7))
+    fg.add_child(
+        folium.CircleMarker(
+            location=[lat, lon],
+            radius=6,
+            popup=f"{str(el)} m",
+            fill_color=color_producer(el),
+            fill=True,
+            color='grey',
+            fill_opacity=0.7,
+        )
+    )
+
 
 # Reading the json file using the GeoJson function
 fgp = folium.FeatureGroup(name='Population')
